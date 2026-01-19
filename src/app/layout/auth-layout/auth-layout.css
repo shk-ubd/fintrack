@@ -1,0 +1,227 @@
+/* FinTrack Auth Layout Styles */
+
+.ft-auth-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Branding Panel */
+.ft-auth-layout__branding {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  background: linear-gradient(135deg, var(--ft-primary) 0%, var(--ft-primary-light) 50%, var(--ft-primary-lighter) 100%);
+  color: var(--ft-text-on-primary);
+  padding: var(--ft-spacing-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.ft-auth-layout__branding::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ft-auth-layout__branding::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -30%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(0, 183, 181, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ft-auth-layout__branding-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.ft-auth-layout__branding :deep(.ft-logo__name),
+.ft-auth-layout__branding :deep(.ft-logo__tagline) {
+  color: var(--ft-text-on-primary);
+}
+
+.ft-auth-layout__branding :deep(.ft-logo__tagline) {
+  opacity: 0.8;
+}
+
+/* Hero Section */
+.ft-auth-layout__hero {
+  margin-top: auto;
+  margin-bottom: var(--ft-spacing-2xl);
+}
+
+.ft-auth-layout__hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 var(--ft-spacing-md);
+}
+
+.ft-auth-layout__hero-highlight {
+  color: var(--ft-primary-lighter);
+  background: linear-gradient(135deg, #a3f0ee 0%, #4dd9d7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ft-auth-layout__hero-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin: 0;
+  max-width: 480px;
+}
+
+/* Features */
+.ft-auth-layout__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-spacing-md);
+  margin-bottom: auto;
+}
+
+.ft-auth-layout__feature {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-spacing-md);
+  padding: var(--ft-spacing-md);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--ft-radius-lg);
+  backdrop-filter: blur(10px);
+}
+
+.ft-auth-layout__feature-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--ft-radius-md);
+  flex-shrink: 0;
+}
+
+.ft-auth-layout__feature-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ft-auth-layout__feature-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-auth-layout__feature-text strong {
+  font-weight: 600;
+  font-size: 0.938rem;
+}
+
+.ft-auth-layout__feature-text span {
+  font-size: 0.813rem;
+  opacity: 0.8;
+}
+
+/* Branding Footer */
+.ft-auth-layout__branding-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.ft-auth-layout__branding-footer p {
+  margin: 0;
+  font-size: 0.813rem;
+  opacity: 0.7;
+}
+
+/* Main Panel */
+.ft-auth-layout__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: var(--ft-spacing-2xl);
+  background-color: var(--ft-surface);
+}
+
+.ft-auth-layout__form-container {
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ft-auth-layout__branding {
+    width: 45%;
+    padding: var(--ft-spacing-xl);
+  }
+
+  .ft-auth-layout__main {
+    width: 55%;
+    padding: var(--ft-spacing-xl);
+  }
+
+  .ft-auth-layout__hero-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ft-auth-layout {
+    flex-direction: column;
+  }
+
+  .ft-auth-layout__branding {
+    width: 100%;
+    min-height: auto;
+    padding: var(--ft-spacing-xl);
+  }
+
+  .ft-auth-layout__hero {
+    margin-top: var(--ft-spacing-xl);
+    margin-bottom: var(--ft-spacing-xl);
+  }
+
+  .ft-auth-layout__hero-title {
+    font-size: 1.75rem;
+  }
+
+  .ft-auth-layout__features {
+    display: none;
+  }
+
+  .ft-auth-layout__main {
+    width: 100%;
+    padding: var(--ft-spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .ft-auth-layout__branding {
+    padding: var(--ft-spacing-lg);
+  }
+
+  .ft-auth-layout__hero-title {
+    font-size: 1.5rem;
+  }
+
+  .ft-auth-layout__hero-description {
+    font-size: 1rem;
+  }
+
+  .ft-auth-layout__main {
+    padding: var(--ft-spacing-md);
+  }
+}

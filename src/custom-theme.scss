@@ -1,35 +1,234 @@
+// FinTrack Custom Theme - Modern Financial Application
+// Custom color palette based on brand colors:
+// Primary: #005461 (Deep Teal)
+// Secondary: #018790 (Teal)
+// Tertiary: #00B7B5 (Bright Teal)
+// Surface: #F4F4F4 (Light Gray)
 
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
+@use 'sass:map';
 @use '@angular/material' as mat;
 
+// Define custom color palettes following Material 3 spec
+$fintrack-primary-palette: (
+  0: #000000,
+  10: #001f24,
+  20: #003640,
+  25: #00424e,
+  30: #004f5c,
+  35: #005b6a,
+  40: #005461,  // Main primary
+  50: #018790,  // Slightly lighter
+  60: #00a5a3,
+  70: #00B7B5,  // Tertiary as accent
+  80: #4dd9d7,
+  90: #a3f0ee,
+  95: #d4f9f8,
+  98: #edfffe,
+  99: #f6fffe,
+  100: #ffffff,
+);
+
+$fintrack-secondary-palette: (
+  0: #000000,
+  10: #001f24,
+  20: #003640,
+  25: #00424e,
+  30: #004f5c,
+  35: #00606e,
+  40: #018790,
+  50: #00a5a3,
+  60: #00c4c1,
+  70: #00B7B5,
+  80: #6ce8e6,
+  90: #b3f5f4,
+  95: #d9faf9,
+  98: #f0fffe,
+  99: #f8fffe,
+  100: #ffffff,
+);
+
+$fintrack-tertiary-palette: (
+  0: #000000,
+  10: #002020,
+  20: #003a3a,
+  25: #004848,
+  30: #005656,
+  35: #006565,
+  40: #007474,
+  50: #009190,
+  60: #00afad,
+  70: #00B7B5,
+  80: #4dd9d7,
+  90: #a3f0ee,
+  95: #d4f9f8,
+  98: #edfffe,
+  99: #f6fffe,
+  100: #ffffff,
+);
+
+$fintrack-neutral-palette: (
+  0: #000000,
+  4: #0d0f0f,
+  6: #121414,
+  10: #1a1c1c,
+  12: #1e2020,
+  17: #282a2a,
+  20: #2f3131,
+  22: #333535,
+  24: #383a3a,
+  25: #3b3d3d,
+  30: #464848,
+  35: #525454,
+  40: #5e6060,
+  50: #777979,
+  60: #919393,
+  70: #acabab,
+  80: #c7c6c6,
+  87: #dad9d9,
+  90: #e3e2e2,
+  92: #e9e8e8,
+  94: #efeeed,
+  95: #F4F4F4,  // Main surface color
+  96: #f5f4f3,
+  98: #fbf9f8,
+  99: #fefcfb,
+  100: #ffffff,
+);
+
+$fintrack-error-palette: (
+  0: #000000,
+  10: #410002,
+  20: #690005,
+  25: #7e0007,
+  30: #93000a,
+  35: #a80710,
+  40: #ba1a1a,
+  50: #de3730,
+  60: #ff5449,
+  70: #ff897d,
+  80: #ffb4ab,
+  90: #ffdad6,
+  95: #ffedea,
+  98: #fff8f7,
+  99: #fffbff,
+  100: #ffffff,
+);
+
+// Apply the custom theme
 html {
+  // Light theme
   @include mat.theme((
     color: (
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
+      primary: $fintrack-primary-palette,
+      secondary: $fintrack-secondary-palette,
+      tertiary: $fintrack-tertiary-palette,
+      neutral: $fintrack-neutral-palette,
+      error: $fintrack-error-palette,
+      theme-type: light,
     ),
-    typography: Roboto,
+    typography: (
+      brand-family: 'Inter, Roboto, sans-serif',
+      plain-family: 'Inter, Roboto, sans-serif',
+    ),
     density: 0,
   ));
+
+  // Dark theme support
+  &.dark-theme {
+    @include mat.theme((
+      color: (
+        primary: $fintrack-primary-palette,
+        secondary: $fintrack-secondary-palette,
+        tertiary: $fintrack-tertiary-palette,
+        neutral: $fintrack-neutral-palette,
+        error: $fintrack-error-palette,
+        theme-type: dark,
+      ),
+      typography: (
+        brand-family: 'Inter, Roboto, sans-serif',
+        plain-family: 'Inter, Roboto, sans-serif',
+      ),
+      density: 0,
+    ));
+  }
+}
+
+// CSS Custom Properties for easy access throughout the app
+:root {
+  // Brand colors
+  --ft-primary: #005461;
+  --ft-primary-light: #018790;
+  --ft-primary-lighter: #00B7B5;
+  --ft-surface: #F4F4F4;
+  --ft-surface-dark: #e8e8e8;
+  --ft-white: #ffffff;
+  --ft-black: #1a1c1c;
+
+  // Semantic colors
+  --ft-success: #22c55e;
+  --ft-warning: #f59e0b;
+  --ft-error: #ef4444;
+  --ft-info: #3b82f6;
+
+  // Text colors
+  --ft-text-primary: #1a1c1c;
+  --ft-text-secondary: #5e6060;
+  --ft-text-muted: #777979;
+  --ft-text-on-primary: #ffffff;
+
+  // Spacing
+  --ft-spacing-xs: 4px;
+  --ft-spacing-sm: 8px;
+  --ft-spacing-md: 16px;
+  --ft-spacing-lg: 24px;
+  --ft-spacing-xl: 32px;
+  --ft-spacing-2xl: 48px;
+  --ft-spacing-3xl: 64px;
+
+  // Border radius
+  --ft-radius-sm: 4px;
+  --ft-radius-md: 8px;
+  --ft-radius-lg: 12px;
+  --ft-radius-xl: 16px;
+  --ft-radius-2xl: 24px;
+  --ft-radius-full: 9999px;
+
+  // Shadows
+  --ft-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ft-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --ft-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --ft-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  // Transitions
+  --ft-transition-fast: 150ms ease;
+  --ft-transition-normal: 250ms ease;
+  --ft-transition-slow: 350ms ease;
+
+  // Sidebar
+  --ft-sidebar-width: 280px;
+  --ft-sidebar-collapsed-width: 72px;
+}
+
+// Dark theme overrides
+.dark-theme {
+  --ft-surface: #1a1c1c;
+  --ft-surface-dark: #121414;
+  --ft-text-primary: #e3e2e2;
+  --ft-text-secondary: #acabab;
+  --ft-text-muted: #919393;
 }
 
 body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
   color-scheme: light;
-
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
-
-  // Reset the user agent margin.
+  background-color: var(--ft-surface);
+  color: var(--ft-text-primary);
+  font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Dark theme body
+.dark-theme body {
+  color-scheme: dark;
 }

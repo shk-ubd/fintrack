@@ -1,0 +1,212 @@
+/* FinTrack Sidebar Component Styles */
+
+.ft-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: var(--ft-sidebar-width);
+  height: 100vh;
+  background-color: var(--ft-white);
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  transition: width var(--ft-transition-normal);
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
+
+.ft-sidebar--collapsed {
+  width: var(--ft-sidebar-collapsed-width);
+}
+
+/* Header */
+.ft-sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ft-spacing-md);
+  height: 64px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ft-sidebar__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  border-radius: var(--ft-radius-md);
+  cursor: pointer;
+  color: var(--ft-text-muted);
+  transition: all var(--ft-transition-fast);
+}
+
+.ft-sidebar__toggle:hover {
+  background-color: var(--ft-surface);
+  color: var(--ft-text-primary);
+}
+
+.ft-sidebar--collapsed .ft-sidebar__toggle {
+  display: none;
+}
+
+/* Navigation */
+.ft-sidebar__nav {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--ft-spacing-sm);
+}
+
+.ft-sidebar__section {
+  margin-bottom: var(--ft-spacing-md);
+}
+
+.ft-sidebar__section-title {
+  display: block;
+  padding: var(--ft-spacing-sm) var(--ft-spacing-md);
+  font-size: 0.688rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ft-text-muted);
+}
+
+.ft-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-spacing-md);
+  padding: var(--ft-spacing-sm) var(--ft-spacing-md);
+  border-radius: var(--ft-radius-md);
+  color: var(--ft-text-secondary);
+  text-decoration: none;
+  transition: all var(--ft-transition-fast);
+  margin-bottom: 2px;
+}
+
+.ft-sidebar__item:hover {
+  background-color: var(--ft-surface);
+  color: var(--ft-text-primary);
+}
+
+.ft-sidebar__item--active {
+  background: linear-gradient(135deg, rgba(0, 84, 97, 0.1) 0%, rgba(1, 135, 144, 0.1) 100%);
+  color: var(--ft-primary);
+}
+
+.ft-sidebar__item--active .ft-sidebar__item-icon {
+  color: var(--ft-primary);
+}
+
+.ft-sidebar__item-icon {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.ft-sidebar__item-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.ft-sidebar__item-badge {
+  margin-left: auto;
+  padding: 2px 8px;
+  font-size: 0.688rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--ft-primary) 0%, var(--ft-primary-light) 100%);
+  color: var(--ft-text-on-primary);
+  border-radius: var(--ft-radius-full);
+}
+
+/* Collapsed state */
+.ft-sidebar--collapsed .ft-sidebar__section-title {
+  display: none;
+}
+
+.ft-sidebar--collapsed .ft-sidebar__item {
+  justify-content: center;
+  padding: var(--ft-spacing-sm);
+}
+
+.ft-sidebar--collapsed .ft-sidebar__item-label,
+.ft-sidebar--collapsed .ft-sidebar__item-badge {
+  display: none;
+}
+
+/* Footer */
+.ft-sidebar__footer {
+  padding: var(--ft-spacing-md);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ft-sidebar__user {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-spacing-sm);
+  padding: var(--ft-spacing-sm);
+  margin-bottom: var(--ft-spacing-sm);
+  border-radius: var(--ft-radius-md);
+  background-color: var(--ft-surface);
+}
+
+.ft-sidebar__user-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ft-sidebar__user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ft-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ft-sidebar__user-email {
+  font-size: 0.75rem;
+  color: var(--ft-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ft-sidebar__logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ft-spacing-sm);
+  width: 100%;
+  padding: var(--ft-spacing-sm) var(--ft-spacing-md);
+  border: none;
+  background: none;
+  border-radius: var(--ft-radius-md);
+  color: var(--ft-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--ft-transition-fast);
+}
+
+.ft-sidebar__logout:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--ft-error);
+}
+
+.ft-sidebar--collapsed .ft-sidebar__user {
+  justify-content: center;
+}
+
+.ft-sidebar--collapsed .ft-sidebar__user-info {
+  display: none;
+}
+
+.ft-sidebar--collapsed .ft-sidebar__logout span {
+  display: none;
+}

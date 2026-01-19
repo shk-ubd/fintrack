@@ -1,0 +1,7 @@
+<div [class]="cardClasses()">
+  <ng-content select="[cardHeader]"></ng-content>
+  <div class="ft-card__body">
+    <ng-content></ng-content>
+  </div>
+  <ng-content select="[cardFooter]"></ng-content>
+</div>

@@ -1,86 +1,92 @@
-/* FinTrack Login Page Styles */
+/* FinTrack Signup Page Styles */
 
-.ft-login {
+.ft-signup {
   width: 100%;
 }
 
 /* Header */
-.ft-login__header {
+.ft-signup__header {
   text-align: center;
   margin-bottom: var(--ft-spacing-xl);
 }
 
-.ft-login__title {
+.ft-signup__title {
   font-size: 1.875rem;
   font-weight: 700;
   color: var(--ft-text-primary);
   margin: 0 0 var(--ft-spacing-xs);
 }
 
-.ft-login__subtitle {
+.ft-signup__subtitle {
   font-size: 0.938rem;
   color: var(--ft-text-muted);
   margin: 0;
 }
 
 /* Form */
-.ft-login__form {
+.ft-signup__form {
   display: flex;
   flex-direction: column;
   gap: var(--ft-spacing-lg);
 }
 
-.ft-login__fields {
+.ft-signup__fields {
   display: flex;
   flex-direction: column;
   gap: var(--ft-spacing-md);
 }
 
-/* Options row */
-.ft-login__options {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.ft-signup__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--ft-spacing-md);
 }
 
-.ft-login__remember {
+/* Terms */
+.ft-signup__terms {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.ft-signup__terms-label {
+  display: flex;
+  align-items: flex-start;
   gap: var(--ft-spacing-sm);
   cursor: pointer;
   font-size: 0.875rem;
   color: var(--ft-text-secondary);
+  line-height: 1.5;
 }
 
-.ft-login__remember input[type="checkbox"] {
+.ft-signup__terms-label input[type="checkbox"] {
   width: 18px;
   height: 18px;
   border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: var(--ft-radius-sm);
   cursor: pointer;
   accent-color: var(--ft-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 
-.ft-login__forgot {
-  font-size: 0.875rem;
+.ft-signup__link {
   color: var(--ft-primary);
   text-decoration: none;
   font-weight: 500;
   transition: color var(--ft-transition-fast);
 }
 
-.ft-login__forgot:hover {
+.ft-signup__link:hover {
   color: var(--ft-primary-light);
 }
 
-/* Social login */
-.ft-login__social {
+/* Social signup */
+.ft-signup__social {
   display: flex;
   gap: var(--ft-spacing-md);
 }
 
-.ft-login__social-btn {
+.ft-signup__social-btn {
   flex: 1;
   display: flex;
   align-items: center;
@@ -97,50 +103,38 @@
   transition: all var(--ft-transition-fast);
 }
 
-.ft-login__social-btn:hover {
+.ft-signup__social-btn:hover {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: var(--ft-surface);
 }
 
-.ft-login__social-btn:active {
+.ft-signup__social-btn:active {
   transform: scale(0.98);
 }
 
 /* Footer */
-.ft-login__footer {
+.ft-signup__footer {
   text-align: center;
   margin-top: var(--ft-spacing-lg);
 }
 
-.ft-login__footer p {
+.ft-signup__footer p {
   font-size: 0.875rem;
   color: var(--ft-text-muted);
   margin: 0;
 }
 
-.ft-login__link {
-  color: var(--ft-primary);
-  font-weight: 600;
-  text-decoration: none;
-  transition: color var(--ft-transition-fast);
-}
-
-.ft-login__link:hover {
-  color: var(--ft-primary-light);
-}
-
 /* Responsive */
 @media (max-width: 480px) {
-  .ft-login__title {
+  .ft-signup__title {
     font-size: 1.5rem;
   }
 
-  .ft-login__options {
-    flex-direction: column;
-    align-items: flex-start;
+  .ft-signup__row {
+    grid-template-columns: 1fr;
   }
 
-  .ft-login__social {
+  .ft-signup__social {
     flex-direction: column;
   }
 }

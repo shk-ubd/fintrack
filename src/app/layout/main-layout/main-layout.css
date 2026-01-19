@@ -1,0 +1,127 @@
+/* FinTrack Main Layout Styles */
+
+.ft-main-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--ft-surface);
+}
+
+.ft-main-layout__content {
+  flex: 1;
+  margin-left: var(--ft-sidebar-width);
+  display: flex;
+  flex-direction: column;
+  transition: margin-left var(--ft-transition-normal);
+  min-height: 100vh;
+}
+
+.ft-main-layout--sidebar-collapsed .ft-main-layout__content {
+  margin-left: var(--ft-sidebar-collapsed-width);
+}
+
+/* Header */
+.ft-main-layout__header {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-spacing-md);
+  height: 64px;
+  padding: 0 var(--ft-spacing-lg);
+  background-color: var(--ft-white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.ft-main-layout__menu-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: var(--ft-radius-md);
+  position: relative;
+  transition: background-color var(--ft-transition-fast);
+}
+
+.ft-main-layout__menu-toggle:hover {
+  background-color: var(--ft-surface);
+}
+
+.ft-main-layout__menu-icon,
+.ft-main-layout__menu-icon::before,
+.ft-main-layout__menu-icon::after {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: var(--ft-text-primary);
+  border-radius: 2px;
+  transition: all var(--ft-transition-fast);
+}
+
+.ft-main-layout__menu-icon {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ft-main-layout__menu-icon::before,
+.ft-main-layout__menu-icon::after {
+  content: '';
+  left: 0;
+}
+
+.ft-main-layout__menu-icon::before {
+  top: -6px;
+}
+
+.ft-main-layout__menu-icon::after {
+  top: 6px;
+}
+
+.ft-main-layout__header-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Body */
+.ft-main-layout__body {
+  flex: 1;
+  padding: var(--ft-spacing-lg);
+  overflow-y: auto;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ft-main-layout__menu-toggle {
+    display: flex;
+  }
+
+  .ft-main-layout__content {
+    margin-left: 0;
+  }
+
+  .ft-main-layout--sidebar-collapsed .ft-main-layout__content {
+    margin-left: 0;
+  }
+
+  :host ::ng-deep .ft-sidebar {
+    transform: translateX(-100%);
+  }
+
+  :host ::ng-deep .ft-sidebar--visible {
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .ft-main-layout__header {
+    padding: 0 var(--ft-spacing-md);
+  }
+
+  .ft-main-layout__body {
+    padding: var(--ft-spacing-md);
+  }
+}

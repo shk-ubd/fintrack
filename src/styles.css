@@ -1,4 +1,186 @@
-/* You can add global styles to this file, and also import other style files */
+/* FinTrack Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+  height: 100%; 
+  overflow-x: hidden;
+}
+
+body { 
+  margin: 0; 
+  font-family: 'Inter', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Typography utilities */
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+
+.font-light { font-weight: 300; }
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Color utilities */
+.text-primary { color: var(--ft-primary); }
+.text-secondary { color: var(--ft-text-secondary); }
+.text-muted { color: var(--ft-text-muted); }
+.text-success { color: var(--ft-success); }
+.text-warning { color: var(--ft-warning); }
+.text-error { color: var(--ft-error); }
+
+.bg-primary { background-color: var(--ft-primary); }
+.bg-surface { background-color: var(--ft-surface); }
+.bg-white { background-color: var(--ft-white); }
+
+/* Flex utilities */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1 1 0%; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.gap-xs { gap: var(--ft-spacing-xs); }
+.gap-sm { gap: var(--ft-spacing-sm); }
+.gap-md { gap: var(--ft-spacing-md); }
+.gap-lg { gap: var(--ft-spacing-lg); }
+.gap-xl { gap: var(--ft-spacing-xl); }
+
+/* Spacing utilities */
+.p-0 { padding: 0; }
+.p-xs { padding: var(--ft-spacing-xs); }
+.p-sm { padding: var(--ft-spacing-sm); }
+.p-md { padding: var(--ft-spacing-md); }
+.p-lg { padding: var(--ft-spacing-lg); }
+.p-xl { padding: var(--ft-spacing-xl); }
+
+.m-0 { margin: 0; }
+.m-auto { margin: auto; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-auto { margin-top: auto; margin-bottom: auto; }
+
+/* Width utilities */
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.max-w-xs { max-width: 20rem; }
+.max-w-sm { max-width: 24rem; }
+.max-w-md { max-width: 28rem; }
+.max-w-lg { max-width: 32rem; }
+.max-w-xl { max-width: 36rem; }
+.max-w-2xl { max-width: 42rem; }
+
+/* Height utilities */
+.h-full { height: 100%; }
+.min-h-screen { min-height: 100vh; }
+
+/* Border radius utilities */
+.rounded-sm { border-radius: var(--ft-radius-sm); }
+.rounded-md { border-radius: var(--ft-radius-md); }
+.rounded-lg { border-radius: var(--ft-radius-lg); }
+.rounded-xl { border-radius: var(--ft-radius-xl); }
+.rounded-2xl { border-radius: var(--ft-radius-2xl); }
+.rounded-full { border-radius: var(--ft-radius-full); }
+
+/* Shadow utilities */
+.shadow-sm { box-shadow: var(--ft-shadow-sm); }
+.shadow-md { box-shadow: var(--ft-shadow-md); }
+.shadow-lg { box-shadow: var(--ft-shadow-lg); }
+.shadow-xl { box-shadow: var(--ft-shadow-xl); }
+
+/* Transition utilities */
+.transition-fast { transition: all var(--ft-transition-fast); }
+.transition-normal { transition: all var(--ft-transition-normal); }
+.transition-slow { transition: all var(--ft-transition-slow); }
+
+/* Text alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Cursor */
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+/* Visibility */
+.hidden { display: none; }
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+/* Overflow */
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+.overflow-scroll { overflow: scroll; }
+
+/* Position */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+/* Z-index */
+.z-0 { z-index: 0; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-50 { z-index: 50; }
+.z-100 { z-index: 100; }
+
+/* Link styles */
+a {
+  color: var(--ft-primary);
+  text-decoration: none;
+  transition: color var(--ft-transition-fast);
+}
+
+a:hover {
+  color: var(--ft-primary-light);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ft-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ft-text-muted);
+  border-radius: var(--ft-radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ft-text-secondary);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--ft-primary-lighter);
+  color: var(--ft-text-on-primary);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--ft-primary);
+  outline-offset: 2px;
+}

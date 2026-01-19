@@ -1,0 +1,131 @@
+<div class="ft-dashboard">
+  <header class="ft-dashboard__header">
+    <div class="ft-dashboard__header-content">
+      <h1 class="ft-dashboard__title">Dashboard</h1>
+      <p class="ft-dashboard__subtitle">Welcome back! Here's your financial overview.</p>
+    </div>
+  </header>
+
+  <!-- Stats Grid -->
+  <section class="ft-dashboard__stats">
+    @for (stat of stats(); track stat.title) {
+      <app-card variant="default" [hoverable]="true">
+        <div class="ft-dashboard__stat-card">
+          <div class="ft-dashboard__stat-header">
+            <span class="ft-dashboard__stat-title">{{ stat.title }}</span>
+            <div class="ft-dashboard__stat-icon" [class.ft-dashboard__stat-icon--positive]="stat.changeType === 'positive'" [class.ft-dashboard__stat-icon--negative]="stat.changeType === 'negative'">
+              <mat-icon>{{ stat.icon }}</mat-icon>
+            </div>
+          </div>
+          <div class="ft-dashboard__stat-value">{{ stat.value }}</div>
+          <div class="ft-dashboard__stat-change">
+            <app-badge 
+              [variant]="stat.changeType === 'positive' ? 'success' : stat.changeType === 'negative' ? 'error' : 'secondary'"
+              size="sm"
+            >
+              {{ stat.change }}
+            </app-badge>
+            <span class="ft-dashboard__stat-period">vs last month</span>
+          </div>
+        </div>
+      </app-card>
+    }
+  </section>
+
+  <!-- Main Content Grid -->
+  <section class="ft-dashboard__content">
+    <!-- Recent Transactions -->
+    <app-card variant="default">
+      <div cardHeader class="ft-dashboard__section-header">
+        <h2 class="ft-dashboard__section-title">Recent Transactions</h2>
+        <a href="/transactions" class="ft-dashboard__section-link">View all</a>
+      </div>
+      
+      <div class="ft-dashboard__transactions">
+        @for (transaction of recentTransactions(); track transaction.name) {
+          <div class="ft-dashboard__transaction">
+            <div class="ft-dashboard__transaction-icon" [class.ft-dashboard__transaction-icon--income]="transaction.amount > 0">
+              <mat-icon>{{ transaction.amount > 0 ? 'arrow_downward' : 'arrow_upward' }}</mat-icon>
+            </div>
+            <div class="ft-dashboard__transaction-info">
+              <span class="ft-dashboard__transaction-name">{{ transaction.name }}</span>
+              <span class="ft-dashboard__transaction-category">{{ transaction.category }}</span>
+            </div>
+            <div class="ft-dashboard__transaction-details">
+              <span class="ft-dashboard__transaction-amount" [class.ft-dashboard__transaction-amount--positive]="transaction.amount > 0">
+                {{ transaction.amount > 0 ? '+' : '' }}{{ transaction.amount | number:'1.2-2' }}
+              </span>
+              <span class="ft-dashboard__transaction-date">{{ transaction.date }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    </app-card>
+
+    <!-- Quick Actions & Budget Overview -->
+    <div class="ft-dashboard__sidebar">
+      <app-card variant="default">
+        <div cardHeader class="ft-dashboard__section-header">
+          <h2 class="ft-dashboard__section-title">Quick Actions</h2>
+        </div>
+        
+        <div class="ft-dashboard__actions">
+          <button class="ft-dashboard__action">
+            <mat-icon>add_circle</mat-icon>
+            <span>Add Transaction</span>
+          </button>
+          <button class="ft-dashboard__action">
+            <mat-icon>account_balance</mat-icon>
+            <span>Link Account</span>
+          </button>
+          <button class="ft-dashboard__action">
+            <mat-icon>pie_chart</mat-icon>
+            <span>Create Budget</span>
+          </button>
+          <button class="ft-dashboard__action">
+            <mat-icon>flag</mat-icon>
+            <span>Set Goal</span>
+          </button>
+        </div>
+      </app-card>
+
+      <app-card variant="default">
+        <div cardHeader class="ft-dashboard__section-header">
+          <h2 class="ft-dashboard__section-title">Budget Overview</h2>
+        </div>
+        
+        <div class="ft-dashboard__budgets">
+          <div class="ft-dashboard__budget">
+            <div class="ft-dashboard__budget-header">
+              <span class="ft-dashboard__budget-name">Food & Dining</span>
+              <span class="ft-dashboard__budget-amount">$420 / $600</span>
+            </div>
+            <div class="ft-dashboard__budget-bar">
+              <div class="ft-dashboard__budget-progress" style="width: 70%"></div>
+            </div>
+          </div>
+          
+          <div class="ft-dashboard__budget">
+            <div class="ft-dashboard__budget-header">
+              <span class="ft-dashboard__budget-name">Transportation</span>
+              <span class="ft-dashboard__budget-amount">$180 / $300</span>
+            </div>
+            <div class="ft-dashboard__budget-bar">
+              <div class="ft-dashboard__budget-progress" style="width: 60%"></div>
+            </div>
+          </div>
+          
+          <div class="ft-dashboard__budget">
+            <div class="ft-dashboard__budget-header">
+              <span class="ft-dashboard__budget-name">Entertainment</span>
+              <span class="ft-dashboard__budget-amount">$145 / $150</span>
+            </div>
+            <div class="ft-dashboard__budget-bar ft-dashboard__budget-bar--warning">
+              <div class="ft-dashboard__budget-progress ft-dashboard__budget-progress--warning" style="width: 96%"></div>
+            </div>
+          </div>
+        </div>
+      </app-card>
+    </div>
+  </section>
+</div>

@@ -1,1 +1,25 @@
-<p>main-layout works!</p>
+<div class="ft-main-layout" [class.ft-main-layout--sidebar-collapsed]="sidebarCollapsed()">
+  <app-sidebar
+    [sections]="sidebarSections()"
+    [collapsed]="sidebarCollapsed()"
+    [userName]="userName()"
+    [userEmail]="userEmail()"
+    (collapsedChange)="onSidebarCollapsedChange($event)"
+    (logout)="onLogout()"
+  ></app-sidebar>
+  
+  <main class="ft-main-layout__content">
+    <header class="ft-main-layout__header">
+      <button class="ft-main-layout__menu-toggle" (click)="onSidebarCollapsedChange(!sidebarCollapsed())">
+        <span class="ft-main-layout__menu-icon"></span>
+      </button>
+      <div class="ft-main-layout__header-content">
+        <ng-content select="[header]"></ng-content>
+      </div>
+    </header>
+    
+    <div class="ft-main-layout__body">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

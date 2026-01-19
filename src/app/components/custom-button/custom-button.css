@@ -1,0 +1,184 @@
+/* FinTrack Button Component Styles */
+
+.ft-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ft-spacing-sm);
+  border: none;
+  border-radius: var(--ft-radius-md);
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--ft-transition-fast);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.ft-button:focus-visible {
+  outline: 2px solid var(--ft-primary);
+  outline-offset: 2px;
+}
+
+.ft-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Sizes */
+.ft-button--sm {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 0.813rem;
+}
+
+.ft-button--md {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 0.875rem;
+}
+
+.ft-button--lg {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 1rem;
+}
+
+/* Icon only adjustments */
+.ft-button--icon-only.ft-button--sm {
+  width: 32px;
+  padding: 0;
+}
+
+.ft-button--icon-only.ft-button--md {
+  width: 40px;
+  padding: 0;
+}
+
+.ft-button--icon-only.ft-button--lg {
+  width: 48px;
+  padding: 0;
+}
+
+/* Variants */
+.ft-button--primary {
+  background: linear-gradient(135deg, var(--ft-primary) 0%, var(--ft-primary-light) 100%);
+  color: var(--ft-text-on-primary);
+  box-shadow: 0 2px 4px rgba(0, 84, 97, 0.2);
+}
+
+.ft-button--primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--ft-primary-light) 0%, var(--ft-primary) 100%);
+  box-shadow: 0 4px 8px rgba(0, 84, 97, 0.3);
+  transform: translateY(-1px);
+}
+
+.ft-button--primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 84, 97, 0.2);
+}
+
+.ft-button--secondary {
+  background-color: var(--ft-primary-light);
+  color: var(--ft-text-on-primary);
+}
+
+.ft-button--secondary:hover:not(:disabled) {
+  background-color: var(--ft-primary);
+  box-shadow: var(--ft-shadow-md);
+}
+
+.ft-button--tertiary {
+  background-color: var(--ft-primary-lighter);
+  color: var(--ft-primary);
+}
+
+.ft-button--tertiary:hover:not(:disabled) {
+  background-color: #00a5a3;
+  color: var(--ft-text-on-primary);
+}
+
+.ft-button--outline {
+  background-color: transparent;
+  color: var(--ft-primary);
+  border: 2px solid var(--ft-primary);
+}
+
+.ft-button--outline:hover:not(:disabled) {
+  background-color: var(--ft-primary);
+  color: var(--ft-text-on-primary);
+}
+
+.ft-button--ghost {
+  background-color: transparent;
+  color: var(--ft-primary);
+}
+
+.ft-button--ghost:hover:not(:disabled) {
+  background-color: rgba(0, 84, 97, 0.08);
+}
+
+.ft-button--danger {
+  background-color: var(--ft-error);
+  color: var(--ft-text-on-primary);
+}
+
+.ft-button--danger:hover:not(:disabled) {
+  background-color: #dc2626;
+  box-shadow: var(--ft-shadow-md);
+}
+
+/* Full width */
+.ft-button--full-width {
+  width: 100%;
+}
+
+/* Loading state */
+.ft-button--loading {
+  pointer-events: none;
+}
+
+.ft-button__spinner {
+  position: absolute;
+}
+
+.ft-button__content--hidden {
+  visibility: hidden;
+}
+
+/* Icon styles */
+.ft-button__icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.ft-button--sm .ft-button__icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.ft-button--lg .ft-button__icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* Ripple effect */
+.ft-button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, transparent 1%, rgba(255, 255, 255, 0.2) 1%) center/15000%;
+  opacity: 0;
+  transition: background 0.5s, opacity 0.3s;
+}
+
+.ft-button:active::after {
+  background-size: 100%;
+  opacity: 1;
+  transition: 0s;
+}

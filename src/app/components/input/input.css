@@ -1,0 +1,132 @@
+/* FinTrack Input Component Styles */
+
+.ft-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-spacing-xs);
+  width: 100%;
+}
+
+.ft-input__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ft-text-primary);
+  margin-bottom: 2px;
+}
+
+.ft-input__required {
+  color: var(--ft-error);
+  margin-left: 2px;
+}
+
+.ft-input__wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-spacing-sm);
+  background-color: var(--ft-white);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--ft-radius-md);
+  transition: all var(--ft-transition-fast);
+  overflow: hidden;
+}
+
+.ft-input--sm .ft-input__wrapper {
+  height: 36px;
+  padding: 0 10px;
+}
+
+.ft-input--md .ft-input__wrapper {
+  height: 44px;
+  padding: 0 14px;
+}
+
+.ft-input--lg .ft-input__wrapper {
+  height: 52px;
+  padding: 0 16px;
+}
+
+.ft-input--focused .ft-input__wrapper {
+  border-color: var(--ft-primary);
+  box-shadow: 0 0 0 3px rgba(0, 84, 97, 0.1);
+}
+
+.ft-input--error .ft-input__wrapper {
+  border-color: var(--ft-error);
+}
+
+.ft-input--error.ft-input--focused .ft-input__wrapper {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.ft-input--disabled .ft-input__wrapper {
+  background-color: var(--ft-surface);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ft-input__field {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.938rem;
+  color: var(--ft-text-primary);
+  width: 100%;
+}
+
+.ft-input__field::placeholder {
+  color: var(--ft-text-muted);
+}
+
+.ft-input__field:disabled {
+  cursor: not-allowed;
+}
+
+.ft-input__icon {
+  color: var(--ft-text-muted);
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.ft-input--focused .ft-input__icon--prefix {
+  color: var(--ft-primary);
+}
+
+.ft-input__password-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--ft-text-muted);
+  border-radius: var(--ft-radius-sm);
+  transition: all var(--ft-transition-fast);
+}
+
+.ft-input__password-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--ft-text-secondary);
+}
+
+.ft-input__password-toggle mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.ft-input__hint {
+  font-size: 0.75rem;
+  color: var(--ft-text-muted);
+}
+
+.ft-input__error {
+  font-size: 0.75rem;
+  color: var(--ft-error);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

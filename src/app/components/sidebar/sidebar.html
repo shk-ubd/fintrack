@@ -1,0 +1,70 @@
+<aside [class]="sidebarClasses()">
+  <!-- Logo Section -->
+  <div class="ft-sidebar__header">
+    <app-logo [collapsed]="collapsed()"></app-logo>
+    <button class="ft-sidebar__toggle" (click)="toggleCollapse()" type="button">
+      <mat-icon>{{ collapsed() ? 'chevron_right' : 'chevron_left' }}</mat-icon>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="ft-sidebar__nav">
+    @for (section of sections(); track section.title) {
+      <div class="ft-sidebar__section">
+        @if (section.title && !collapsed()) {
+          <span class="ft-sidebar__section-title">{{ section.title }}</span>
+        }
+        
+        @for (item of section.items; track item.route) {
+          <a
+            class="ft-sidebar__item"
+            [routerLink]="item.route"
+            routerLinkActive="ft-sidebar__item--active"
+            [matTooltip]="collapsed() ? item.label : ''"
+            matTooltipPosition="right"
+          >
+            <mat-icon class="ft-sidebar__item-icon">{{ item.icon }}</mat-icon>
+            @if (!collapsed()) {
+              <span class="ft-sidebar__item-label">{{ item.label }}</span>
+            }
+            @if (item.badge && !collapsed()) {
+              <span class="ft-sidebar__item-badge">{{ item.badge }}</span>
+            }
+          </a>
+        }
+      </div>
+    }
+  </nav>
+
+  <!-- User Section -->
+  <div class="ft-sidebar__footer">
+    <div class="ft-sidebar__user">
+      <app-avatar 
+        [src]="userAvatar()" 
+        [initials]="userInitials()" 
+        size="sm"
+      ></app-avatar>
+      @if (!collapsed()) {
+        <div class="ft-sidebar__user-info">
+          <span class="ft-sidebar__user-name">{{ userName() }}</span>
+          @if (userEmail()) {
+            <span class="ft-sidebar__user-email">{{ userEmail() }}</span>
+          }
+        </div>
+      }
+    </div>
+    
+    <button 
+      class="ft-sidebar__logout" 
+      (click)="onLogout()"
+      [matTooltip]="collapsed() ? 'Logout' : ''"
+      matTooltipPosition="right"
+      type="button"
+    >
+      <mat-icon>logout</mat-icon>
+      @if (!collapsed()) {
+        <span>Logout</span>
+      }
+    </button>
+  </div>
+</aside>

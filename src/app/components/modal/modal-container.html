@@ -1,0 +1,36 @@
+<div class="ft-modal__container">
+  @if (data.title || data.closable !== false) {
+    <header class="ft-modal__header">
+      @if (data.title) {
+        <h2 class="ft-modal__title">{{ data.title }}</h2>
+      }
+      @if (data.closable !== false) {
+        <button class="ft-modal__close" (click)="close()" type="button">
+          <mat-icon>close</mat-icon>
+        </button>
+      }
+    </header>
+  }
+  
+  <div class="ft-modal__content" mat-dialog-content>
+    @if (data.isConfirmDialog) {
+      <p class="ft-modal__message">{{ data.message }}</p>
+    } @else {
+      <ng-content></ng-content>
+    }
+  </div>
+  
+  @if (data.isConfirmDialog) {
+    <footer class="ft-modal__footer" mat-dialog-actions>
+      <app-button variant="ghost" (clicked)="close()">
+        {{ data.cancelText || 'Cancel' }}
+      </app-button>
+      <app-button 
+        [variant]="data.variant === 'danger' ? 'danger' : 'primary'" 
+        (clicked)="confirm()"
+      >
+        {{ data.confirmText || 'Confirm' }}
+      </app-button>
+    </footer>
+  }
+</div>

@@ -1,1 +1,22 @@
-<p>custom-button works!</p>
+<button
+  [type]="type()"
+  [class]="buttonClasses()"
+  [disabled]="isDisabled()"
+  (click)="onClick($event)"
+>
+  @if (loading()) {
+    <mat-spinner [diameter]="spinnerDiameter()" class="ft-button__spinner"></mat-spinner>
+  }
+  
+  @if (icon() && iconPosition() === 'left' && !loading()) {
+    <mat-icon class="ft-button__icon ft-button__icon--left">{{ icon() }}</mat-icon>
+  }
+  
+  <span class="ft-button__content" [class.ft-button__content--hidden]="loading()">
+    <ng-content></ng-content>
+  </span>
+  
+  @if (icon() && iconPosition() === 'right' && !loading()) {
+    <mat-icon class="ft-button__icon ft-button__icon--right">{{ icon() }}</mat-icon>
+  }
+</button>

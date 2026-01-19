@@ -1,0 +1,318 @@
+/* FinTrack Dashboard Page Styles */
+
+.ft-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-spacing-lg);
+}
+
+/* Header */
+.ft-dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ft-dashboard__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ft-text-primary);
+  margin: 0 0 var(--ft-spacing-xs);
+}
+
+.ft-dashboard__subtitle {
+  font-size: 0.938rem;
+  color: var(--ft-text-muted);
+  margin: 0;
+}
+
+/* Stats Grid */
+.ft-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--ft-spacing-md);
+}
+
+.ft-dashboard__stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-spacing-sm);
+}
+
+.ft-dashboard__stat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ft-dashboard__stat-title {
+  font-size: 0.875rem;
+  color: var(--ft-text-muted);
+}
+
+.ft-dashboard__stat-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ft-radius-md);
+  background-color: var(--ft-surface);
+  color: var(--ft-text-secondary);
+}
+
+.ft-dashboard__stat-icon--positive {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--ft-success);
+}
+
+.ft-dashboard__stat-icon--negative {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--ft-error);
+}
+
+.ft-dashboard__stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--ft-text-primary);
+}
+
+.ft-dashboard__stat-change {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-spacing-sm);
+}
+
+.ft-dashboard__stat-period {
+  font-size: 0.75rem;
+  color: var(--ft-text-muted);
+}
+
+/* Main Content */
+.ft-dashboard__content {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--ft-spacing-lg);
+}
+
+.ft-dashboard__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ft-dashboard__section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ft-text-primary);
+  margin: 0;
+}
+
+.ft-dashboard__section-link {
+  font-size: 0.875rem;
+  color: var(--ft-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ft-dashboard__section-link:hover {
+  color: var(--ft-primary-light);
+}
+
+/* Transactions */
+.ft-dashboard__transactions {
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-dashboard__transaction {
+  display: flex;
+  align-items: center;
+  gap: var(--ft-spacing-md);
+  padding: var(--ft-spacing-md) 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.ft-dashboard__transaction:last-child {
+  border-bottom: none;
+}
+
+.ft-dashboard__transaction-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ft-radius-full);
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--ft-error);
+}
+
+.ft-dashboard__transaction-icon--income {
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--ft-success);
+}
+
+.ft-dashboard__transaction-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ft-dashboard__transaction-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ft-text-primary);
+}
+
+.ft-dashboard__transaction-category {
+  font-size: 0.75rem;
+  color: var(--ft-text-muted);
+}
+
+.ft-dashboard__transaction-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.ft-dashboard__transaction-amount {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ft-error);
+}
+
+.ft-dashboard__transaction-amount--positive {
+  color: var(--ft-success);
+}
+
+.ft-dashboard__transaction-date {
+  font-size: 0.75rem;
+  color: var(--ft-text-muted);
+}
+
+/* Sidebar */
+.ft-dashboard__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-spacing-lg);
+}
+
+/* Quick Actions */
+.ft-dashboard__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ft-spacing-sm);
+}
+
+.ft-dashboard__action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ft-spacing-xs);
+  padding: var(--ft-spacing-md);
+  border: none;
+  background-color: var(--ft-surface);
+  border-radius: var(--ft-radius-md);
+  cursor: pointer;
+  transition: all var(--ft-transition-fast);
+}
+
+.ft-dashboard__action:hover {
+  background-color: rgba(0, 84, 97, 0.08);
+  color: var(--ft-primary);
+}
+
+.ft-dashboard__action mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  color: var(--ft-primary);
+}
+
+.ft-dashboard__action span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ft-text-secondary);
+}
+
+.ft-dashboard__action:hover span {
+  color: var(--ft-primary);
+}
+
+/* Budget */
+.ft-dashboard__budgets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-spacing-md);
+}
+
+.ft-dashboard__budget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ft-spacing-xs);
+}
+
+.ft-dashboard__budget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ft-dashboard__budget-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ft-text-primary);
+}
+
+.ft-dashboard__budget-amount {
+  font-size: 0.75rem;
+  color: var(--ft-text-muted);
+}
+
+.ft-dashboard__budget-bar {
+  height: 8px;
+  background-color: var(--ft-surface);
+  border-radius: var(--ft-radius-full);
+  overflow: hidden;
+}
+
+.ft-dashboard__budget-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--ft-primary) 0%, var(--ft-primary-light) 100%);
+  border-radius: var(--ft-radius-full);
+  transition: width var(--ft-transition-slow);
+}
+
+.ft-dashboard__budget-progress--warning {
+  background: linear-gradient(90deg, var(--ft-warning) 0%, var(--ft-error) 100%);
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+  .ft-dashboard__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ft-dashboard__content {
+    grid-template-columns: 1fr;
+  }
+
+  .ft-dashboard__sidebar {
+    flex-direction: row;
+  }
+
+  .ft-dashboard__sidebar > * {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .ft-dashboard__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .ft-dashboard__sidebar {
+    flex-direction: column;
+  }
+}

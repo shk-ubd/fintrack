@@ -1,0 +1,48 @@
+<div [class]="inputClasses()">
+  @if (label()) {
+    <label class="ft-input__label">
+      {{ label() }}
+      @if (required()) {
+        <span class="ft-input__required">*</span>
+      }
+    </label>
+  }
+  
+  <div class="ft-input__wrapper">
+    @if (prefixIcon()) {
+      <mat-icon class="ft-input__icon ft-input__icon--prefix">{{ prefixIcon() }}</mat-icon>
+    }
+    
+    <input
+      class="ft-input__field"
+      [type]="actualType()"
+      [value]="value()"
+      [placeholder]="placeholder()"
+      [disabled]="disabled()"
+      [readonly]="readonly()"
+      [autocomplete]="autocomplete()"
+      (input)="onInputChange($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+    />
+    
+    @if (type() === 'password') {
+      <button
+        type="button"
+        class="ft-input__password-toggle"
+        (click)="togglePasswordVisibility()"
+        tabindex="-1"
+      >
+        <mat-icon>{{ showPassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+    } @else if (suffixIcon()) {
+      <mat-icon class="ft-input__icon ft-input__icon--suffix">{{ suffixIcon() }}</mat-icon>
+    }
+  </div>
+  
+  @if (errorMessage()) {
+    <span class="ft-input__error">{{ errorMessage() }}</span>
+  } @else if (hint()) {
+    <span class="ft-input__hint">{{ hint() }}</span>
+  }
+</div>

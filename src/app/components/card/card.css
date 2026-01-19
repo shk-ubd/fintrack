@@ -1,0 +1,75 @@
+/* FinTrack Card Component Styles */
+
+.ft-card {
+  background-color: var(--ft-white);
+  border-radius: var(--ft-radius-lg);
+  transition: all var(--ft-transition-normal);
+  overflow: hidden;
+}
+
+/* Variants */
+.ft-card--default {
+  box-shadow: var(--ft-shadow-sm);
+}
+
+.ft-card--elevated {
+  box-shadow: var(--ft-shadow-lg);
+}
+
+.ft-card--outlined {
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ft-card--filled {
+  box-shadow: none;
+  background-color: var(--ft-surface);
+}
+
+/* Padding */
+.ft-card--padding-none .ft-card__body {
+  padding: 0;
+}
+
+.ft-card--padding-sm .ft-card__body {
+  padding: var(--ft-spacing-sm);
+}
+
+.ft-card--padding-md .ft-card__body {
+  padding: var(--ft-spacing-md);
+}
+
+.ft-card--padding-lg .ft-card__body {
+  padding: var(--ft-spacing-lg);
+}
+
+/* Interactive states */
+.ft-card--hoverable:hover {
+  box-shadow: var(--ft-shadow-xl);
+  transform: translateY(-2px);
+}
+
+.ft-card--clickable {
+  cursor: pointer;
+}
+
+.ft-card--clickable:active {
+  transform: scale(0.99);
+}
+
+/* Card sections */
+.ft-card__body {
+  position: relative;
+}
+
+:host ::ng-deep [cardHeader] {
+  padding: var(--ft-spacing-md);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+}
+
+:host ::ng-deep [cardFooter] {
+  padding: var(--ft-spacing-md);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: rgba(0, 0, 0, 0.02);
+}

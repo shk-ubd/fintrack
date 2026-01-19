@@ -1,0 +1,72 @@
+/* FinTrack Modal Container Styles */
+
+.ft-modal__container {
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+}
+
+.ft-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ft-spacing-md) var(--ft-spacing-lg);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.ft-modal__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ft-text-primary);
+}
+
+.ft-modal__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  border-radius: var(--ft-radius-md);
+  cursor: pointer;
+  color: var(--ft-text-muted);
+  transition: all var(--ft-transition-fast);
+}
+
+.ft-modal__close:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--ft-text-primary);
+}
+
+.ft-modal__content {
+  padding: var(--ft-spacing-lg);
+  overflow-y: auto;
+}
+
+.ft-modal__message {
+  margin: 0;
+  font-size: 0.938rem;
+  color: var(--ft-text-secondary);
+  line-height: 1.6;
+}
+
+.ft-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--ft-spacing-sm);
+  padding: var(--ft-spacing-md) var(--ft-spacing-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Global modal styles */
+:host ::ng-deep .ft-modal {
+  border-radius: var(--ft-radius-xl) !important;
+  overflow: hidden;
+}
+
+:host ::ng-deep .mat-mdc-dialog-surface {
+  border-radius: var(--ft-radius-xl) !important;
+}
